@@ -10,8 +10,7 @@
  //listNode定义一个链表，val指向当前节点，next 指向下一个节点
 var addTwoNumbers = function(l1, l2) {
     //ListNode list=new ListNode() 初始化一个空节点，无值,不提倡此种写法。
-    //ListNode list=new ListNode(0) 初始化一个节点值为0的空节点，最常用最正规写法
-    //使用dummy可以避免很多由于头节点特殊性产生的坑，让代码更优雅。dummy的应用场景主要有以下两类：1作为新链表的头部（可参考leetcode第2题、第21题）2解决链表的头部引起的极端问题（可参考leetcode第19题、第24题）。使用dummy最主要的原因是消除头节点的特殊性，使用一个虚拟节点冒充头节点，而真正的头节点就和其他普通节点一样。当我们处理完链表之后，只需要返回dummy.next，由于单向链表只能从头往后遍历的性质，就可以舍弃掉dummy，返回的就是我们需要的链表。
+    //ListNode list=new ListNode(0) 初始化一个节点值为0的空节点，最常用最正规写法 
     let dummy = new ListNode(0);
     let curr = dummy;
     let carry = 0;
@@ -39,7 +38,13 @@ var addTwoNumbers = function(l1, l2) {
     return dummy.next;
 
 };
-
+为什么需要dummy节点？
+  在头节点创建dummy节点，使用dummy可以避免很多由于头节点特殊性产生的坑，让代码更优雅。dummy的应用场景主要有以下两类：
+  1作为新链表的头部（可参考leetcode第2题、第21题）2解决链表的头部引起的极端问题（可参考leetcode第19题、第24题）。
+  使用dummy最主要的原因是消除头节点的特殊性，使用一个虚拟节点冒充头节点，而真正的头节点就和其他普通节点一样。
+  当我们处理完链表之后，只需要返回dummy.next，由于单向链表只能从头往后遍历的性质，就可以舍弃掉dummy，返回的就是我们需要的链表。
+  
+  
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/add-two-numbers
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
